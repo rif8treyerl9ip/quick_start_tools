@@ -1,0 +1,4 @@
+echo "Running Alpine container..."
+docker run --rm -ti alpine:latest /bin/sh
+
+echo "Alpine container is now running."
