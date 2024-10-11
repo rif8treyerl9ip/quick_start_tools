@@ -6,13 +6,26 @@
 	// Example:
 
 	// DEBUG
+	// p1 → p2 → s1
 	"p1": {
 		"prefix": "p1",
 		"body": ["print('0'*100)\n\nprint('0'*100)\n$0"],
 	},
 	"p2": {
 		"prefix": "p2",
-		"body": ["print(f'xxx: {xxx}')"],
+		"body": ["print(f'!@@ xxx: {xxx}')"],
+	},
+	"l1": {
+		"prefix": "l1",
+		"body": ["logger.warning('0'*100)\n\nlogger.warning('0'*100)\n$0"],
+	},
+	"l2": {
+		"prefix": "l2",
+		"body": ["logger.warning(f'!@@ xxx: {xxx}')"],
+	},
+	"l3": {
+		"prefix": "l3",
+		"body": ["import logging\nlogger = logging.getLogger(__name__)\nlogger.warning(f'!@@ xxx: {xxx}')"],
 	},
 	"s1": {
 		"prefix": "s1",
