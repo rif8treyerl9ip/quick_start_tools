@@ -33,3 +33,6 @@ oderwat.indent-rainbow
 trond-snekvik.simple-rst
 twxs.cmake
 usernamehw.errorlens
+yzhang.markdown-all-in-one
+davidanson.vscode-markdownlint
+jsynowiec.vscode-insertdatestring
