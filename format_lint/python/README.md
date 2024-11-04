@@ -23,7 +23,6 @@ ruff check --select E501 --add-noqa .
 - install
 
 ```bash
-pip install pre-commit
 pre-commit install
 ```
 
