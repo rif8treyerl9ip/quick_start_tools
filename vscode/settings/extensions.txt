@@ -36,3 +36,4 @@ usernamehw.errorlens
 yzhang.markdown-all-in-one
 davidanson.vscode-markdownlint
 jsynowiec.vscode-insertdatestring
+charliermarsh.ruff
