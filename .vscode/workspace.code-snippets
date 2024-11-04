@@ -1,0 +1,55 @@
+{
+	"p": {
+		"scope": "python",
+		"prefix": "p",
+		"body": ["import pdb; pdb.set_trace()"],
+	},
+	// "p1": {
+	// 	"scope": "python",
+	// 	"prefix": "p1",
+	// 	"body": ["print('0'*100)\n\nprint('0'*100)\n$0"],
+	// },
+	"p2": {
+		"scope": "python",
+		"prefix": "p2",
+		"body": ["print(f'!@@ xxx: {xxx}')"],
+	},
+	"pc": {
+		"scope": "python",
+		"prefix": "pc",
+		"body": ["print(f'\\033[33m!@@ xxx: {xxx}\\033[0m')"],
+	},
+	"lc": {
+		"scope": "python",
+		"prefix": "lc",
+		"body": ["logger.setLevel(logging.INFO); YELLOW = '\\033[33m'; RESET = '\\033[0m'"],
+	},
+	"l0": {
+		"scope": "python",
+		"prefix": "l0",
+		"body": ["import logging\nlogger = logging.getLogger(__name__)\nlogger.warning(f'!@@ xxx: {xxx}')"],
+	},
+	"l1": {
+		"scope": "python",
+		"prefix": "l1",
+		"body": ["logger.warning('0'*100)\n\nlogger.warning('0'*100)\n$0"],
+	},
+	"l2": {
+		"scope": "python",
+		"prefix": "l2",
+		"body": ["logger.warning(f'{YELLOW}!@@ xxx: {xxx}{RESET}')"],
+	},
+	"s1": {
+		"scope": "python",
+		"prefix": "s1",
+		"body": ["$0import sys;sys.exit()"],
+	},
+	"i1": {
+		"scope": "python",
+		"prefix": "i1",
+		"body": [
+			"import inspect",
+			"inspect.getsourcefile($0)",
+		],
+	},
+}

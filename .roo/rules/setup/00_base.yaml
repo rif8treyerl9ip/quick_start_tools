@@ -1,0 +1,7 @@
+# 開発言語設定
+languages:
+  description: "対象言語に基づいて必要なツールとライブラリをインストール"
+  targets:
+    - Python
+    - Shell
+    - C++

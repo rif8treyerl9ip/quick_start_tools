@@ -1,0 +1,57 @@
+# EditorConfig is awesome: https://editorconfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf  # Unix-style line endings
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+
+# Matches multiple files with brace expansion notation
+# Set default charset
+[*.{js,py}]
+charset = utf-8
+
+# Makefiles
+[Makefile*]
+indent_style = tab
+
+# CMake files
+[*.{cmake,CMakeLists.txt}]
+indent_style = space
+indent_size = 2
+
+# Python Style Guide(https://google.github.io/styleguide/pyguide.html)
+[*.py]
+indent_style = space
+indent_size = 4
+max_line_length = 120
+
+# C++ Style Guide(https://ttsuki.github.io/styleguide/cppguide.ja.html)
+[*.{cc,h,cpp,hpp,c,cxx,hxx}]
+indent_style = space
+indent_size = 2
+max_line_length = 80
+
+# Shell Style Guide(https://google.github.io/styleguide/shellguide.html)
+[*.{sh,bash}]
+indent_style = space
+indent_size = 2
+max_line_length = 80
+
+# Tab indentation (no size specified)
+[Makefile]
+indent_style = tab
+
+# Indentation override for all JS under lib directory
+[lib/**.js]
+indent_style = space
+indent_size = 2
+
+# Matches the exact files either package.json or .travis.yml
+[{package.json,.travis.yml}]
+indent_style = space
+indent_size = 2
