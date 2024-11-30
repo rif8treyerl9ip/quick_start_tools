@@ -1,0 +1,40 @@
+
+docker:
+  method:
+    - dockerfile
+  image:
+    name:
+      # - "alpine:latest"
+      # - "nvidia/cuda:12.9.0-devel-ubuntu24.04"
+      # - "ubuntu:24.04"
+      # - docker-compose
+      - ubuntu:22.04
+      # - ubuntu:24.04
+  build_options:  # docker/build.shに記述
+    - "--build-arg USERNAME=$USER"
+    - "--build-arg USER_UID=$UID"
+    - "--build-arg USER_GID=${GROUPS[0]}"
+    - "-f docker/Dockerfile"  # または "docker/docker-compose.yaml"
+  run_options:  # docker/run.shに記述
+    - "-it"
+    - "--rm"
+    - "-v \"$(pwd)\":/workspace"
+  include_packages:  # コンテナに含めるパッケージ
+    - build-essential
+    - curl
+    - git
+    - sudo
+    - vim
+    - wget
+    - zsh
+  exclude_packages:  # コンテナに含めないパッケージ
+    - [ruff, shellcheck]
+  addtional_cmd_in_docker_image: |
+    # zsh auto suggestion
+    ZSH_CUSTOM=~/.zsh_custom
+    echo "ZSH_CUSTOM=~/.zsh_custom" >> ~/.zshrc
+    echo "mkdir -p $ZSH_CUSTOM/plugins" >> ~/.zshrc
+    echo -e "if [ ! -d \"\$ZSH_CUSTOM/plugins/zsh-autosuggestions\" ]; then\n\tgit clone https://github.com/zsh-users/zsh-autosuggestions.git \"\$ZSH_CUSTOM/plugins/zsh-autosuggestions\"\nfi" >> ~/.zshrc
+    $ZSH_CUSTOM/plugins/zsh-autosuggestions" >> ~/.zshrc
+    echo "source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
+    source ~/.zshrc
