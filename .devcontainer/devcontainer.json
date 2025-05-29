@@ -1,0 +1,59 @@
+// .devcontainer/devcontainer.json
+{
+    "name": "Node.js Dev Container",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "rooveterinaryinc.roo-cline",  // Roo Code
+                "iliazeus.vscode-ansi",  // ANSI Color styling
+                "asciidoctor.asciidoctor-vscode",  // AsciiDoc
+                "janisdd.vscode-edit-csv",  // Csv Edit
+                "mechatroner.rainbow-csv",  // Csv Rainbow
+                "bierner.markdown-mermaid",  // Markdown Mermaid Preview
+                "yzhang.markdown-all-in-one",  // Markdown All in One
+                "redhat.vscode-yaml",  // Yaml Extension
+                "tamasfe.even-better-toml",  // TOML support
+                "shardulm94.trailing-spaces",  // Highlight WhiteSpace
+                "cardinal90.multi-cursor-case-preserve",  // Multi cursor
+                "asuka.insertnumbers",  // insert numbers
+                "ms-vscode.remote-explorer",  // Remote Explorer
+                "ms-vscode.remote-server",  // Remote Server
+                // Python
+                "ms-python.python",  // Python
+                "charliermarsh.ruff",  // Ruff
+                "ms-python.isort",  // Python isort
+                "ms-python.black-formatter",  // Python Black Formatter
+                "ms-python.vscode-pylance",  // Python Pylance
+                "ms-toolsai.jupyter",  // Jupyter
+                // C, C++
+                "llvm-vs-code-extensions.vscode-clangd",  //C/C++ completion, navigation, and insights
+                // CMAKE
+                "ms-vscode.cmake-tools",  // Extended CMake support in Visual Studio Code
+                // Shell
+                "timonwong.shellcheck" // ShellCheck
+            ],
+            "settings": {
+                "[python]": {
+                    // "editor.defaultFormatter": "ms-python.black-formatter",
+                    "editor.defaultFormatter": "charliermarsh.ruff",
+                    "editor.formatOnSave": true,
+                    "editor.codeActionsOnSave": {
+                        "source.fixAll.ruff": "explicit",
+                        "source.organizeImports.ruff": "explicit"
+                    }
+                },
+                "isort.args": ["--profile", "black"]  // blackルールで整理
+            }
+        }
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {},  // Git (from source)
+        "ghcr.io/devcontainers/features/github-cli:1": {},  // GitHub CLI
+        "ghcr.io/dhoeric/features/hadolint:1": {},  // Hadolint
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {}  // Docker (Docker-in-Docker)
+    },
+    "postCreateCommand": "zsh .devcontainer/install_zsh_config.sh"
+  }
