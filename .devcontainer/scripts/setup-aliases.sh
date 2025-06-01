@@ -43,10 +43,31 @@ dexec() {
     fi
 }
 
-# 追加のエイリアス（必要に応じて拡張可能）
-# alias ll='ls -la'
-# alias la='ls -A'
-# alias l='ls -CF'
+# Git Clone and Initial Setup Function
+cnek() {
+    if [ $# -eq 0 ]; then
+        echo "Usage: clonek <repository URL>"
+        return 1
+    fi
+    
+    local repo_url="$1"
+    local repo_name=$(basename "$repo_url" .git)
+    
+    echo "Cloning repository: $repo_url"
+    git clone "$repo_url"
+    
+    if [ $? -eq 0 ]; then
+        cd "$repo_name"
+        echo "Current branch:"
+        echo -e "\e[33m$(pwd)\e[0m"
+        git branch
+        echo "Recent commit history:"
+        git log --oneline | head -n 5
+    else
+        echo "Clone failed"
+        return 1
+    fi
+}
 
 EOF
 
