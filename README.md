@@ -29,8 +29,4 @@ cd .. && rm -rf quick_start_tools
 - **`git/`** - Git関連ユーティリティ
   - リポジトリ分割スクリプト
   - GitHub URL更新スクリプト
-- **`vscode/`** - VSCode設定
-  - `settings/` - 設定ファイルと拡張機能リスト
-  - `snippets/` - コードスニペット（Python、Shell）
 - **`work_efficiency/`** - 作業効率化ツール
-- **`linux_cmd/`** - 非推奨（deprecated）
