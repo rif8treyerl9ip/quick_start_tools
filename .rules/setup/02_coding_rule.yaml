@@ -1,0 +1,65 @@
+
+# コーディング規約/formatter/linter設定
+code_quality:
+  # pre-commitフックのセットアップ
+  setup_script:
+    file: "docker/setup_precommit.sh"
+    content: |
+      #!/bin/bash
+      set -e
+      python3 -m venv .venv
+      .venv/bin/pip install pre-commit
+      pre-commit install
+  editor_config:
+    vscode:
+      file: ".vscode/settings.json"
+      settings: |
+        {
+          "editor.formatOnSave": true,
+          "python.linting.enabled": true,
+          "python.linting.ruffEnabled": true,
+          "C_Cpp.clang_format_style": "file",
+          "shellcheck.enable": true
+        }
+  # pre-commit設定
+  pre_commit:
+    file: ".pre-commit-config.yaml"
+    config: |
+      repos:
+      - repo: https://github.com/astral-sh/ruff-pre-commit
+        rev: v0.3.0
+        hooks:
+          - id: ruff
+            args: [--fix]
+          - id: ruff-format
+      - repo: https://github.com/pre-commit/pre-commit-hooks
+        rev: v4.5.0
+        hooks:
+          - id: trailing-whitespace
+          - id: end-of-file-fixer
+          - id: check-yaml
+  # 言語別の品質管理ツール設定
+  languages:
+    python:
+      style_guide: "Google Python Style Guide"
+      formatter: "ruff"
+      linter: "ruff"
+      notes: "ruffのフォーマッタはファイル保存時に自動整形されるため、手動での修正は不要"
+      config_file: ".ruff.toml"
+    shell:
+      style_guide: "Google Shell Style Guide"
+      formatter: "shellcheck"
+      linter: "shellcheck"
+      notes: "shellcheckはファイル保存時に問題を検出。自動修正には対応していないため注意"
+      config_file: ".pre-commit-config.yaml"
+    # 未テスト
+    # cpp:
+    #   style_guide: "Google C++ Style Guide"
+    #   formatter: "clang-format"
+    #   linter: "clang-tidy"
+    #   notes: "clang-formatはpre-commitで実行可能だが、clang-tidyは大規模プロジェクトではCIツールでの実行を推奨"
+    #   config_files:
+    #     - ".clang-format"
+    #     - ".clang-tidy"
+    #   # コンパイルデータベースの必要性
+    #   compile_commands: "compile_commands.jsonが必要。CMakeの場合は-DCMAKE_EXPORT_COMPILE_COMMANDS=ONを使用"

@@ -1,0 +1,35 @@
+
+git:
+  gitconfig: |
+    [user]
+      email = "<email>"
+      name = "<name>"
+    [alias]
+      st = status
+      ss = status -s
+      co = checkout
+      br = branch
+      sw = switch
+      pr = pull -r
+      cm = commit
+      ps = push
+      fixit = commit --amend --no-edit
+  gitignore: |
+    # 画像ファイル
+    *.png
+    *.jpg
+    *.jpeg
+    
+    # 環境変数・仮想環境
+    .env
+    .venv
+    env/
+    venv/
+    ENV/
+    
+    # ビルド成果物
+    __pycache__/
+    *.py[cod]
+    *$py.class
+    build/
+    dist/
