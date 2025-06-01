@@ -21,6 +21,8 @@
                 "asuka.insertnumbers",  // insert numbers
                 "ms-vscode.remote-explorer",  // Remote Explorer
                 "ms-vscode.remote-server",  // Remote Server
+                // GitHub
+                "github.vscode-pull-request-github",  // Pull Request GitHub
                 // Python
                 "ms-python.python",  // Python
                 "charliermarsh.ruff",  // Ruff
@@ -55,5 +57,5 @@
         "ghcr.io/dhoeric/features/hadolint:1": {},  // Hadolint
         "ghcr.io/devcontainers/features/docker-in-docker:2": {}  // Docker (Docker-in-Docker)
     },
-    "postCreateCommand": "zsh .devcontainer/install_zsh_config.sh"
-  }
+    "postCreateCommand": ".devcontainer/scripts/setup-zsh.sh && .devcontainer/scripts/setup-aliases.sh && .devcontainer/scripts/check-ssh.sh"
+}

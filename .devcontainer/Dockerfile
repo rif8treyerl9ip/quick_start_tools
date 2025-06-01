@@ -9,14 +9,20 @@ RUN apt-get update && \
     # ping
     iputils-ping \
     gnupg \
+    # for github cli
+    less \
     jq \
-    sudo \
+    nano \
     # ssh, scp
     openssh-client \
     python3 \
     python3-pip \
     python3-venv \
+    # for ssh-agent
+    socat \
+    sudo \
     tmux \
+    vim \
     zsh \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
