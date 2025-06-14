@@ -2,3 +2,5 @@
 *venv*
 
 untrack
+
+.vscode/settings.json
