@@ -43,10 +43,10 @@ gh pr diff > .tmp_pr/PR_DIFF.log
 レビューが完了し、マージの準備ができたら、「finish」 と入力することで以下の処理が自動実行されます：
 
 ```bash
-gh pr merge --merge`
+gh pr merge --merge
 rm -rf .tmp_pr
-git push origin --delete <branch name>`
-gh issue close <issue number>`
-git checkout main`
-git pull`
+git push origin --delete <branch name>
+gh issue close <issue number>
+git checkout main
+git pull
 ```
