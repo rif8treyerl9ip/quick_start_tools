@@ -30,13 +30,13 @@ fi
 ```
 
 ```bash
-mkdir ./tmp_roo
+mkdir .tmp_pr
 
 # PRの詳細情報（タイトル、説明、レビュアー、ステータス等）を取得
-gh pr view > /tmp_roo/PR_VIEW.log
+gh pr view > .tmp_pr/PR_VIEW.log
 
 # PRの差分を取得
-gh pr diff > /tmp_roo/PR_DIFF.log
+gh pr diff > .tmp_pr/PR_DIFF.log
 ```
 
 ### レビュー完了後の操作
@@ -44,7 +44,7 @@ gh pr diff > /tmp_roo/PR_DIFF.log
 
 ```bash
 gh pr merge --merge`
-rm -rf tmp_roo
+rm -rf .tmp_pr
 git push origin --delete <branch name>`
 gh issue close <issue number>`
 git checkout main`
