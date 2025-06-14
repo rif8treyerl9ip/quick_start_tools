@@ -21,7 +21,7 @@
 pr_count=$(gh pr list --json number --jq length)
 
 if [ "$pr_count" -eq 0 ]; then
-   gh pr create --title "<issue number>" --body "issues: If you can identify the <issue URL>, enter it here. If not, enter ''"
+   gh pr create --title "<issue number>" --body "issues: <#<issue number>> or ''"
 fi
 ```
 
