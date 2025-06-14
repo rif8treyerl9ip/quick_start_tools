@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # =======================================================
-# Aliases and Functions Setup
+# Aliases and Bindings Setup
 # =======================================================
-# カスタムエイリアスと関数を.zshrcに追加
+# カスタムエイリアスとキーバインドを.zshrcに追加
 
 set -e
 
@@ -49,13 +49,13 @@ cnek() {
         echo "Usage: clonek <repository URL>"
         return 1
     fi
-    
+
     local repo_url="$1"
     local repo_name=$(basename "$repo_url" .git)
-    
+
     echo "Cloning repository: $repo_url"
     git clone "$repo_url"
-    
+
     if [ $? -eq 0 ]; then
         cd "$repo_name"
         echo "Current branch:"
@@ -68,6 +68,22 @@ cnek() {
         return 1
     fi
 }
+
+# Zshのキーバインド
+function clear_screen() {
+    clear
+    zle reset-prompt
+}
+zle -N clear_screen
+bindkey '^[i' clear_screen
+
+function reload_zshrc() {
+    source ~/.zshrc
+    echo -e '\033[32mzshrc reloaded\033[0m'
+    zle reset-prompt
+}
+zle -N reload_zshrc
+bindkey '^[r' reload_zshrc
 
 EOF
 
