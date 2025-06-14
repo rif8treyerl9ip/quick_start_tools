@@ -1,8 +1,9 @@
 # https://docs.roocode.com/features/custom-modes?_highlight=roomodes#3-manual-configuration-yaml--json
 customModes:
-  - slug: pr-reviewer
-    name: pr-reviewer
+  - slug: PR-reviewer
+    name: PR-reviewer
     roleDefinition: >-
+      You are a PR reviewer.
     customInstructions: "Reply in Japanese"
     groups:
       - browser
