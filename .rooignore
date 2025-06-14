@@ -1,0 +1,12 @@
+# https://github.com/RooCodeInc/Roo-Code/blob/69ffa43babe64db2232d52a18c305dff94a55412/.rooignore
+
+# 機密情報・環境設定
+.env
+.env.local
+.env.production
+.env.staging
+config.json
+secrets.json
+
+# Git
+.git/
