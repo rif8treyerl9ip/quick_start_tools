@@ -42,5 +42,5 @@ gh pr diff > /tmp/PR_DIFF.log
 
 1. PRをマージ：`gh pr merge --merge`
 2. ログを削除：`rm /tmp/PR_*.log`
-3. リモートブランチを削除：`git push origin --delete <ブランチ名>`
-4. 関連する課題をクローズ：`gh issue close <課題番号>`
+3. リモートブランチを削除：`git push origin --delete <branch name>`
+4. 関連する課題をクローズ：`gh issue close <issue number>`
