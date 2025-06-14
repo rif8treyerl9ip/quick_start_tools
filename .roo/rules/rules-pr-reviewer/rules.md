@@ -18,6 +18,10 @@
 レビュー実行時に、以下のコマンドが自動的に実行されます：
 
 ```bash
+git branch --show-current
+```
+
+```bash
 pr_count=$(gh pr list --json number --jq length)
 
 if [ "$pr_count" -eq 0 ]; then
@@ -26,21 +30,23 @@ fi
 ```
 
 ```bash
-mkdir -p /tmp
-# 現在のブランチ名を確認
-git branch --show-current
+mkdir ./tmp_roo
 
 # PRの詳細情報（タイトル、説明、レビュアー、ステータス等）を取得
-gh pr view > /tmp/PR_VIEW.log
+gh pr view > /tmp_roo/PR_VIEW.log
 
 # PRの差分を取得
-gh pr diff > /tmp/PR_DIFF.log
+gh pr diff > /tmp_roo/PR_DIFF.log
 ```
 
 ### レビュー完了後の操作
 レビューが完了し、マージの準備ができたら、「finish」 と入力することで以下の処理が自動実行されます：
 
-1. PRをマージ：`gh pr merge --merge`
-2. ログを削除：`rm /tmp/PR_*.log`
-3. リモートブランチを削除：`git push origin --delete <branch name>`
-4. 関連する課題をクローズ：`gh issue close <issue number>`
+```bash
+gh pr merge --merge`
+rm -rf tmp_roo
+git push origin --delete <branch name>`
+gh issue close <issue number>`
+git checkout main`
+git pull`
+```
