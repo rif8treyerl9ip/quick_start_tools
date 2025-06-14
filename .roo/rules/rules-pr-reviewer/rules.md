@@ -18,6 +18,14 @@
 レビュー実行時に、以下のコマンドが自動的に実行されます：
 
 ```bash
+pr_count=$(gh pr list --json number --jq length)
+
+if [ "$pr_count" -eq 0 ]; then
+   gh pr create --body "#<issue number or ''"
+fi
+```
+
+```bash
 mkdir -p /tmp
 # 現在のブランチ名を確認
 git branch --show-current
@@ -30,7 +38,7 @@ gh pr diff > /tmp/PR_DIFF.log
 ```
 
 ### レビュー完了後の操作
-レビューが完了し、マージの準備ができたら、**「finish」** と入力することで以下の処理が自動実行されます：
+レビューが完了し、マージの準備ができたら、「finish」 と入力することで以下の処理が自動実行されます：
 
 1. PRをマージ：`gh pr merge --merge`
 2. ログを削除：`rm /tmp/PR_*.log`
