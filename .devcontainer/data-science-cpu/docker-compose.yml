@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  # basic:
+  #   build:
+  #     context: ../basic
+  #     dockerfile: Dockerfile
+  #   image: basic-devcontainer:latest
+
+  data-science-cpu:
+    build:
+      context: .
+      dockerfile: Dockerfile.combined
+    # depends_on:
+    #   - basic
+    volumes:
+      - ../..:/workspace:cached
+    working_dir: /workspace
+    command: sleep infinity
+    environment:
+      - VIRTUAL_ENV=/opt/venv
+      - PATH=/opt/venv/bin:/usr/local/bin:/usr/bin:/bin
