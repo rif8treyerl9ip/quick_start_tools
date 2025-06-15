@@ -1,13 +1,15 @@
 # .devcontainer/Dockerfile
 
 # TODO: Make base image selectable via docker compose
-# FROM ubuntu:24.04
+FROM ubuntu:24.04
 # FROM python:3.12-slim
 # FROM debian:bookworm-slim
-FROM nvidia/cuda:12.9.0-devel-ubuntu24.04
+# FROM nvidia/cuda:12.9.0-devel-ubuntu24.04
 
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
+    # sleep
+    coreutils \
     curl \
     # ping
     iputils-ping \

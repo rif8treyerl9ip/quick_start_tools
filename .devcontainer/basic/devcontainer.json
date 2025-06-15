@@ -1,6 +1,6 @@
 // .devcontainer/devcontainer.json
 {
-    "name": "Python Dev Container",
+    "name": "Basic",
     "build": {
         "dockerfile": "Dockerfile"
     },
