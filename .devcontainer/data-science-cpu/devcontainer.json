@@ -23,22 +23,26 @@
                 "asuka.insertnumbers",  // insert numbers
                 "EditorConfig.EditorConfig",  // EditorConfig
                 "vsls-contrib.codetour",  // CodeTour
+                // C, C++
+                "llvm-vs-code-extensions.vscode-clangd",  //C/C++ completion, navigation, and insights
+                // CMAKE
                 "johnpapa.vscode-peacock",  // Peacock
                 // GitHub
                 "github.vscode-pull-request-github",  // Pull Request GitHub
                 // Python
                 "ms-python.python",  // Python
+                //   Astral
                 "charliermarsh.ruff",  // Ruff
-                "ms-python.isort",  // Python isort
-                "ms-python.black-formatter",  // Python Black Formatter
-                "ms-python.vscode-pylance",  // Python Pylance
+                "astral-sh.ty",  // ty
+                // "ms-python.isort",  // Python isort
+                // "ms-python.black-formatter",  // Python Black Formatter
+                // "ms-python.vscode-pylance",  // Python Pylance
                 "ms-toolsai.jupyter",  // Jupyter
-                // C, C++
-                "llvm-vs-code-extensions.vscode-clangd",  //C/C++ completion, navigation, and insights
-                // CMAKE
                 "ms-vscode.cmake-tools",  // Extended CMake support in Visual Studio Code
+                // Ruby
+                "shopify.ruby-lsp", // NOTE: Not available in Cursor
                 // Shell
-                "timonwong.shellcheck" // ShellCheck
+                "timonwong.shellcheck", // ShellCheck
             ],
             "settings": {
                 "[python]": {
